@@ -77,6 +77,7 @@ namespace App.Controllers
                     {
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                         return RedirectToLocal(returnUrl);
+
                     }
                     else
                     {
@@ -91,7 +92,7 @@ namespace App.Controllers
             return View(model);
         }   //
         // GET: /Account/VerifyCode
-        [AllowAnonymous]
+      /* [AllowAnonymous]
         public async Task<ActionResult> VerifyCode(string provider, string returnUrl, bool rememberMe)
         {
             // Требовать предварительный вход пользователя с помощью имени пользователя и пароля или внешнего имени входа
@@ -132,7 +133,7 @@ namespace App.Controllers
             }
         }
 
-        //
+        //*/
         // GET: /Account/Register
         [AllowAnonymous]
         public ActionResult Register()
@@ -184,7 +185,7 @@ namespace App.Controllers
 
         //
         // GET: /Account/ForgotPassword
-        [AllowAnonymous]
+   /*     [AllowAnonymous]
         public ActionResult ForgotPassword()
         {
             return View();
@@ -381,7 +382,7 @@ namespace App.Controllers
             ViewBag.ReturnUrl = returnUrl;
             return View(model);
         }
-
+        */
         //
         // POST: /Account/LogOff
         [HttpPost]
@@ -389,16 +390,16 @@ namespace App.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Account");
         }
 
         //
         // GET: /Account/ExternalLoginFailure
-        [AllowAnonymous]
+    /*    [AllowAnonymous]
         public ActionResult ExternalLoginFailure()
         {
             return View();
-        }
+        }*/
 
         protected override void Dispose(bool disposing)
         {

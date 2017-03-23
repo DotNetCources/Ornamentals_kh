@@ -72,7 +72,11 @@ namespace App.Controllers
                 Logins = await UserManager.GetLoginsAsync(userId),
                 BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
             };
-            return View(model);
+            //   return View(model);
+            if (User.Identity.IsAuthenticated)
+                return RedirectToAction("Index", "Products");
+            else
+                return RedirectToAction("Login", "Account");
         }
 
         //

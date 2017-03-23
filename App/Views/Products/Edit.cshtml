@@ -1,0 +1,22 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model App.Models.Product
+@using (Html.BeginForm("Save", "Products", FormMethod.Post))
+{
+
+    <div align="center">
+        <h4>Редактирование</h4>
+        <br />
+        <h5>Название:</h5>
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @Value = @Model.Name })
+        <h5>Цена:</h5>
+        @Html.TextBoxFor(m => m.Price, new { @class = "form-control", @Value = @Model.Price })
+        <h5>Описание:</h5>
+        @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+        <br />
+        <button type="submit"> Сохранить </button>
+
+    </div>
+}

@@ -1,0 +1,23 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model App.Models.Product
+<h2>Тут будет список продуктов</h2>
+
+@using (Html.BeginForm())
+{
+
+    <div align="right">
+           <h4>Добавление нового товара:</h4>
+           <br />
+           <h5>Название:</h5>
+           @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+           <h5>Цена:</h5>
+           @Html.TextBoxFor(m=>m.Price, new { @class = "form-control"})
+           <br />
+                <button type="submit"> Добавить </button>           
+            
+    </div>
+}
