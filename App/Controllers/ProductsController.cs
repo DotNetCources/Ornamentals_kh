@@ -27,7 +27,7 @@ namespace App.Controllers
             return View("Edit", product);
         }
         [HttpPost]
-        public ActionResult Edit(Product product)
+        public ActionResult Edit(Product product=null)
         {
             if (!User.Identity.IsAuthenticated)
                 return RedirectToAction("Login", "Account");
